@@ -2,23 +2,22 @@
 
   <h1><%= @cocktail.name %></h1>
 
-  <div class="card-white">
-    <h2>Cocktail info</h2>
-    <%= link_to "edit", edit_cocktail_path(@cocktail), class: "btn btn-light" %>
-    <%= link_to "add dose", new_cocktail_dose_path(@cocktail), class: "btn btn-light" %>
+  <div class="card">
+    <h3>Cocktail info</h3>
   </div>
+    <%= link_to "edit", edit_cocktail_path(@cocktail), class: "btn btn-success" %>
 
   <div class="card">
-    <h2>Dose</h2>
-    <% @doses.each do |dose| %>
+    <h3>Dose</h3>
+    <% @cocktail.doses.each do |dose| %>
     <p><%= dose.description %></p>
     <p></p>
     <% end %>
   </div>
 
   <div class="bottom-link">
-    <%= link_to "back to cocktail list", cocktail_path, class: "btn btn-success" %>
-    <%= link_to "Add a new dose", new_dose_path, class: "btn btn-success" %>
+    <%= link_to "back to cocktail list", cocktails_path, class: "btn btn-success" %>
+    <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-success" %>
   </div>
 
 </div>

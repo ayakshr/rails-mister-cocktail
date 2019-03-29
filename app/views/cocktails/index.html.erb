@@ -1,6 +1,15 @@
 <div class="my-container">
 
-  <h1>List of cocktails</h1>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'alcohol-bar-beer-1283219.jpg' %>);">
+    <div class="container">
+      <h1>Cocktails</h1>
+      <div class="banner-button">
+        <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+
+  <h3>List of cocktails</h3>
 
   <div class="card-deck">
   <% @cocktails.each do |cocktail| %>
@@ -8,14 +17,10 @@
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><%= cocktail.name %></h5>
-      <!-- <div class="btn btn-light"> -->
         <%= link_to "details", cocktail_path(cocktail), class: "btn btn-light" %>
-      <!-- </div> -->
     </div>
   </div>
   <% end %>
   </div>
-
-  <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-success" %>
 
 </div>
