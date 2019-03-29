@@ -9,17 +9,22 @@
     </div>
   </div>
 
-  <h3>List of cocktails</h3>
+  <h3 class="text-center">List of cocktails</h3>
 
   <div class="card-deck">
   <% @cocktails.each do |cocktail| %>
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%= cocktail.name %></h5>
-        <%= link_to "details", cocktail_path(cocktail), class: "btn btn-light" %>
-    </div>
-  </div>
+    <%= link_to cocktail_path(cocktail) do %>
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= cocktail.name %></h5>
+          <%= link_to delete_cocktail_path(cocktail),
+          method: :delete, data: { confirm: "Are you sure?"} do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
   </div>
 
