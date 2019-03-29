@@ -5,19 +5,20 @@
   <div class="card">
     <h3>Cocktail info</h3>
   </div>
-    <%= link_to "edit", edit_cocktail_path(@cocktail), class: "btn btn-success" %>
 
   <div class="card">
     <h3>Dose</h3>
     <% @cocktail.doses.each do |dose| %>
-    <p><%= dose.description %></p>
+    <p><%= dose.description %> <%= dose.ingredient.name %></p>
     <p></p>
     <% end %>
   </div>
 
+  <%= render 'doses/form', dose: @dose, cocktail: @cocktail %>
+
   <div class="bottom-link">
     <%= link_to "back to cocktail list", cocktails_path, class: "btn btn-success" %>
-    <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-success" %>
+<!--     <#%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-success" %> -->
   </div>
 
 </div>
